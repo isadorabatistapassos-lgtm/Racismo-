@@ -1,1 +1,354 @@
 # Racismo-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola Sem Racismo - Conscientização e Apoio</title>
+    
+    <style>
+        /* ==========================================
+           1. ESTILOS CSS (Cores, Imagens e Layout)
+           ========================================== */
+        :root {
+            --primary-color: #5A2A27;    /* Vinho/Marrom escuro (Resistência e Sobriedade) */
+            --accent-color: #D48C46;     /* Terracota/Dourado (Acolhimento) */
+            --bg-light: #F9F6F0;         /* Creme/Off-white (Fundo suave) */
+            --text-dark: #2C2C2C;        /* Texto escuro */
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho / Navegação */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo h1 span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-nav {
+            background-color: var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 5px;
+            color: var(--white) !important;
+        }
+
+        .btn-nav:hover {
+            background-color: #b87333;
+        }
+
+        /* Banner Principal (Hero) com Imagem de Fundo */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
+                        url('https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=1200') center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background-color: #b87333;
+        }
+
+        /* Seções e Grids */
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .bg-light-section {
+            background-color: #EFE8DC;
+            padding: 50px 0;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Formulário de Desabafo e Denúncia */
+        .form-wrapper {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .canais-ajuda {
+            margin-top: 40px;
+            background: #E8D8C8;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .canais-ajuda ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        #mensagem-sucesso {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         2. ESTRUTURA HTML (Conteúdo)
+         ========================================== -->
+
+    <!-- Cabeçalho / Navegação -->
+    <header>
+        <div class="logo">
+            <h1>Escola<span>SemRacismo</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#dados">Impactos</a></li>
+                <li><a href="#denuncia" class="btn-nav">Desabafo & Denúncia</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Principal -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Por uma educação antirracista, justa e acolhedora.</h2>
+            <p>O racismo no ambiente escolar impacta o aprendizado e a autoestima dos estudantes. Não se cale.</p>
+            <a href="#denuncia" class="btn-primary">Compartilhe seu Relato</a>
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section id="sobre" class="container">
+        <h2>O Racismo no Ambiente Escolar</h2>
+        <p style="margin-top: 10px;">
+            O ambiente escolar deve ser um espaço seguro de aprendizado, diversidade e desenvolvimento. 
+            O racismo manifesta-se em piadas, exclusão, discriminação por traços físicos, cabelo crespo/cacheado 
+            e tratamento desigual. Combater o racismo na escola é um dever de toda a comunidade acadêmica.
+        </p>
+    </section>
+
+    <!-- Seção de Dados e Informações -->
+    <section id="dados" class="bg-light-section">
+        <div class="container" style="margin: 0 auto;">
+            <h2>Impactos na Vida Escolar</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Exclusão e Evasão</h3>
+                    <p>Estudantes negros enfrentam maiores taxas de evasão escolar devido à falta de acolhimento e aos episódios contínuos de discriminação.</p>
+                </div>
+                <div class="card">
+                    <h3>Saúde Mental</h3>
+                    <p>O preconceito no ambiente de ensino gera ansiedade, baixa autoestima e isolamento em crianças e adolescentes.</p>
+                </div>
+                <div class="card">
+                    <h3>Lei 10.639/03</h3>
+                    <p>Legislação que torna obrigatório o ensino da história e cultura afro-brasileira nas escolas, essencial para combater o preconceito na raiz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Desabafo e Denúncia -->
+    <section id="denuncia" class="container">
+        <div class="form-wrapper">
+            <h2>Espaço de Fala: Desabafo & Denúncia</h2>
+            <p style="margin-bottom: 20px;">
+                Se você vivenciou ou testemunhou algum ato de racismo no ambiente escolar, use este espaço para desabafar ou registrar a denúncia. 
+                <strong>Você pode enviar seu relato de forma totalmente anônima.</strong>
+            </p>
+
+            <form id="form-denuncia">
+                <div class="form-group">
+                    <label for="nome">Seu Nome (Opcional):</label>
+                    <input type="text" id="nome" placeholder="Deixe em branco para enviar anonimamente">
+                </div>
+
+                <div class="form-group">
+                    <label for="escola">Nome da Escola / Cidade (Opcional):</label>
+                    <input type="text" id="escola" placeholder="Ex: Escola Estadual X - São Paulo">
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo">Tipo de Envio:</label>
+                    <select id="tipo" required>
+                        <option value="desabafo">Apenas Desabafo / Relato</option>
+                        <option value="denuncia">Pedido de Ajuda / Denúncia</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Seu Relato / Mensagem:*</label>
+                    <textarea id="mensagem" rows="6" placeholder="Escreva aqui o que aconteceu..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Enviar Relato</button>
+            </form>
+
+            <div id="mensagem-sucesso" class="hidden">
+                ✓ Seu relato foi recebido com respeito e segurança. Você não está só!
+            </div>
+        </div>
+
+        <!-- Canais de Ajuda Oficial -->
+        <div class="canais-ajuda">
+            <h3>Canais Oficiais de Denúncia no Brasil:</h3>
+            <ul>
+                <li><strong>Disque 100:</strong> Direitos Humanos (Atendimento gratuito, 24h e anônimo).</li>
+                <li><strong>Conselho Tutelar:</strong> Procure a unidade mais próxima do seu município.</li>
+                <li><strong>Polícia Militar (190):</strong> Em casos de emergência ou flagrante.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 Projeto Escola Sem Racismo - Desenvolvido para Conscientização Social.</p>
+    </footer>
+
+    <!-- ==========================================
+         3. LÓGICA JAVASCRIPT (Interatividade)
+         ========================================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("form-denuncia");
+            const mensagemSucesso = document.getElementById("mensagem-sucesso");
+
+            if (form) {
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault(); // Evita recarregar a página
+
+                    // Reseta os campos e exibe o aviso
+                    form.reset();
+                    mensagemSucesso.classList.remove("hidden");
+
+                    // Esconde a mensagem após 6 segundos
+                    setTimeout(() => {
+                        mensagemSucesso.classList.add("hidden");
+                    }, 6000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
